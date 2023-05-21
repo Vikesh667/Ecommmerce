@@ -3,14 +3,21 @@ import React, { useState } from "react";
 const AddProduct = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
-  const [categoery, setCategoery] = useState("");
+  const [category, setCategoery] = useState("");
   const [company, setCompany] = useState("");
+  const [error,setError]=useState(false)
   const addProduct=async(e)=>{
     e.preventDefault()
+ if(!name || !price || !category || !company){
+    setError(true)
+    return false
+
+ }
+
     const userId=JSON.parse(localStorage.getItem("User"))._id
      let result=await fetch("http://localhost:5000/add-product",{
         method:"post",
-        body:JSON.stringify({name,price,categoery,company,userId}),
+        body:JSON.stringify({name,price,category,company,userId}),
         headers:{
             "Content-Type":"application/json"
         }
@@ -28,6 +35,7 @@ const AddProduct = () => {
         value={name}
         onChange={(e)=>setName(e.target.value)}
         />
+      { error && !name && <span className="invalid-input">Enter valid Name</span>}  
       <input
         className="inputBox"
         type="text"
@@ -35,13 +43,15 @@ const AddProduct = () => {
         value={price}
         onChange={(e)=>setPrice(e.target.value)}
         />
+         { error && !price && <span className="invalid-input">Enter valid price</span>}  
       <input
         className="inputBox"
         type="text"
         placeholder="Enter product categoery"
-        value={categoery}
+        value={category}
         onChange={(e)=>setCategoery(e.target.value)}
         />
+         { error && !category && <span className="invalid-input1">Enter valid categoery</span>}  
       <input
         className="inputBox"
         type="text"
@@ -49,6 +59,7 @@ const AddProduct = () => {
         value={company}
         onChange={(e)=>setCompany(e.target.value)}
       />
+       { error && !company && <span className="invalid-input1">Enter valid company</span>}  
       <button className="AppButton" type="button" onClick={addProduct}>
         Add Product
       </button>

@@ -39,6 +39,31 @@ align-items: center;
 justify-content: center;
 margin-top: 5rem;
 }
+.invalid-input{
+  color: red;
+  /* margin-top: -20px; */
+  display: block;
+  margin-left: -190px;
+}
+.invalid-input1{
+  color: red;
+  /* margin-top: -20px; */
+  display: block;
+  margin-left: -160px;
+}
+.Product-list{
+  text-align: center;
+  margin-top: 50px;
+}
+.Product-list ul li{
+  display: inline-block;
+  border: 1px solid skyblue;
+  padding: 5px;
+  width: 150px;
+}
+.Product-list ul {
+  margin: 0;
+}
 .inputBox{
   
   display: block;
