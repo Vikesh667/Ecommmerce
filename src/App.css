@@ -19,10 +19,17 @@
   width: 100%;
   background-color: skyblue;
 }
-.register{
+.register {
 display: flex;
 flex-direction: column;
 align-items: center;
+ 
+}
+.product{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
  
 }
 .login{
