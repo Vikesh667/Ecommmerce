@@ -18,8 +18,9 @@ const Login = () => {
      )
      result =await result.json()
      console.log(result)
-     if(result.name){
-      localStorage.setItem("User",JSON.stringify(result))
+     if(result.auth){
+      localStorage.setItem("User",JSON.stringify(result.user))
+      localStorage.setItem("token",JSON.stringify(result.auth))
       navigate('/')
      }
   }

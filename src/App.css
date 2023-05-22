@@ -90,3 +90,11 @@ margin-top: 5rem;
   margin-top: 3px;
   margin-left: 20px;
 }
+.search{
+  width: 400px;
+  margin: 20px;
+  height: 40px;
+  border:  1px solid skyblue;
+  padding-left: 20px;
+  outline: none;
+}
