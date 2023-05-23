@@ -4,6 +4,10 @@ const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [mobile,setMobile]=useState("")
+  const [desination,setDegination]=useState("")
+  const [address,setAddress]=useState("")
+  const [course,setCourse]=useState("")
   const navigate=useNavigate()
 
   const registerUser=async(e)=>{

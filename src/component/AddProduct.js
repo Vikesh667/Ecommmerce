@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
   const [name, setName] = useState("");
@@ -6,6 +7,7 @@ const AddProduct = () => {
   const [category, setCategoery] = useState("");
   const [company, setCompany] = useState("");
   const [error,setError]=useState(false)
+  const navigate=useNavigate()
   const addProduct=async(e)=>{
     e.preventDefault()
  if(!name || !price || !category || !company){
@@ -18,12 +20,14 @@ const AddProduct = () => {
      let result=await fetch("http://localhost:5000/add-product",{
         method:"post",
         body:JSON.stringify({name,price,category,company,userId}),
+        
         headers:{
-            "Content-Type":"application/json"
+            "Content-Type":"application/json",
+            Authorization:`bearer ${JSON.parse(localStorage.getItem("token"))}`
         }
      }) 
      result =await result.json()
-     console.log(result)
+     navigate('/')
  }
   return (
     <div className="product">
